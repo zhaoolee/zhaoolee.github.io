@@ -2,12 +2,23 @@
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <script src="/static/md5.min.js"></script>
 
-<div id="gitalk-container"></div>
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?06e2f2a37e405b47f1c995e373094ae1";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+  
+
 {{content}}
 
+
+<div id="gitalk-container"></div>
 <script>
   var gitalk = new Gitalk({
-
     clientID: 'fcfeca14739ad63b029c',
     clientSecret: '191c171c5954a566e184f8a22b2c7a4b0b224759',
     repo: 'zhaoolee.github.io',
