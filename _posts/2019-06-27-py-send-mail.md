@@ -40,3 +40,4 @@ yag.send('zhaoolee@gmail.com', '主题:学习使我快乐', contents)
 > ![设置授权码](https://raw.githubusercontent.com/zhaoolee/GraphBed/master/zhaoolee_images000000/e3cfd472a30bfa823e3b1252a4d92d1a.png)
 > ![弹框提示](https://raw.githubusercontent.com/zhaoolee/GraphBed/master/zhaoolee_images000000/8a00504611a070226e4ce78a66c658b7.png)
 
+{% include footer.html %}
