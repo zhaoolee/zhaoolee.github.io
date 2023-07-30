@@ -1,1 +1,2 @@
 - [编程是手段，不是出路](work/2020-01-12-programmer.md)
+- [Linux服务器之间迁移数据的技巧](work/2023-07-30-rsync-data.md)
