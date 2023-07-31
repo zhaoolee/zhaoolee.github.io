@@ -1,3 +1,4 @@
 - [回到首页](https://zhaoolee.com)
-- [V2方圆(备案期间被迫暂停服务)](https://v2fy.com)
-- [方圆小站(备案期间被迫暂停服务)](https://fangyuanxiaozhan.com)
+- [GBlog](https://zhaoolee.com/GBlog/)
+- [V2方圆(备案期间被迫暂停服务)](https://v2fy.com/)
+- [方圆小站(备案期间被迫暂停服务)](https://fangyuanxiaozhan.com/)
