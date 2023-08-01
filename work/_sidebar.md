@@ -1,3 +1,4 @@
 - [编程是手段，不是出路](work/2020-01-12-programmer.md)
 - [命令行测试服务器上传下载的带宽](work/2023-07-31-speedtest.md)
 - [Linux服务器之间迁移数据的技巧](work/2023-07-30-rsync-data.md)
+- [解决PM2 Log文件占用6.8GB的问题，设置Log文件自动清理](work/2023-08-01-pm2.md)
