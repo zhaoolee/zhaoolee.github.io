@@ -1056,44 +1056,412 @@ new Sentry({
 ## 如何实现CDN 重试
 
 
+在使用 CDN（内容分发网络）时，实现重试机制是为了提高资源加载的成功率。当客户端尝试从CDN获取资源失败时，可以采取一些策略来重试请求。以下是实现 CDN 重试的一些常见方法：
+
+1. **客户端重试**:
+   - **JavaScript 重试**: 当使用 JavaScript 动态加载资源（如图片、脚本、CSS等）失败时，可以通过监听错误事件来实现重试逻辑。例如，如果一个图片加载失败，可以在 `onerror` 事件中更换图片的 `src` 属性为备用CDN的URL。
+   ```javascript
+   const primaryCDN = 'https://cdn.primary.com/path/to/resource';
+   const backupCDN = 'https://cdn.backup.com/path/to/resource';
+
+   const img = new Image();
+   img.src = primaryCDN;
+   img.onerror = () => {
+     console.log('Loading from primary CDN failed, trying backup CDN');
+     img.src = backupCDN; // 切换到备用 CDN
+   };
+   document.body.appendChild(img);
+   ```
+   - **重试策略**: 可以定义重试次数和重试间隔，例如使用 `setTimeout` 来延迟重试，避免立即重试导致的频繁请求。
+
+2. **服务端重试**:
+   - 如果你控制着服务端，你可以在服务器端实现重试机制。当服务端从主CDN获取资源失败时，它可以尝试从其他CDN获取资源，然后将其提供给客户端。
+   - 这种方法的优点是对客户端透明，用户不需要处理任何重试逻辑。
+
+3. **DNS级别重试**:
+   - **智能DNS服务**: 使用支持故障转移的智能DNS服务，可以在DNS解析层面实现重试。当主CDN不可用时，DNS查询将解析到备用CDN的IP地址。
+   - 这种方法对终端用户是完全透明的，不需要更改客户端代码。
+
+4. **使用服务工作器(Service Worker)**:
+   - Service Worker可以拦截和处理网络请求，这使得它成为实现重试逻辑的理想选择。如果使用Service Worker拦截资源加载请求，并在请求失败时尝试从备用CDN加载，这可以在不影响主页面逻辑的情况下实现重试机制。
+
+5. **第三方库或工具**:
+   - 有些第三方JavaScript库提供了请求重试的功能，如Axios等，你可以使用这些库来简化重试逻辑的实现。
+
+在实现重试逻辑时，需要考虑几个重要的因素：
+- **重试次数**: 限制重试次数可以避免无限重试，这可能会导致服务降级或其他问题。
+- **指数退避**: 在连续的重试中增加延迟时间，例如每次重试等待时间翻倍，这样可以减少对服务器的冲击。
+- **错误类型**: 只有在确定是由于CDN问题导致的错误时才进行重试，例如网络错误或者是 5xx 类型的服务器错误。
+- **监控**: 实施监控来跟踪重试发生的频率和成功率，以便对系统进行调优和问题诊断。
+
+根据你的具体需求和环境，可以选择一个或多个策略来实现 CDN 重试机制。
+
+
 ## 基础数据类型，如何判断
+
+在JavaScript中，基础数据类型（也称为原始数据类型）包括：
+
+1. Undefined
+2. Null
+3. Boolean
+4. Number
+5. BigInt (ES2020中新增)
+6. String
+7. Symbol (ES6中新增)
+
+为了判断一个变量的数据类型，你可以使用 `typeof` 操作符，它可以返回一个表示数据类型的字符串。
+
+这里是如何使用 `typeof` 来判断各种数据类型的例子：
+
+```javascript
+let undefinedVar;
+console.log(typeof undefinedVar); // "undefined"
+
+let nullVar = null;
+// 注意：这是一个历史遗留的bug，null被认为是一个对象。
+console.log(typeof nullVar); // "object"
+
+let booleanVar = true;
+console.log(typeof booleanVar); // "boolean"
+
+let numberVar = 123;
+console.log(typeof numberVar); // "number"
+
+let bigIntVar = 123n;
+console.log(typeof bigIntVar); // "bigint"
+
+let stringVar = "Hello";
+console.log(typeof stringVar); // "string"
+
+let symbolVar = Symbol("description");
+console.log(typeof symbolVar); // "symbol"
+```
+
+对于 `null`，`typeof` 返回的是 `"object"`，这实际上是JavaScript最初版本的一个错误，由于历史原因一直保留到现在。如果你需要准确地判断一个变量是否是 `null`，你可以直接使用严格等于（`===`）来比较。
+
+```javascript
+if (nullVar === null) {
+    console.log('nullVar is null');
+}
+```
+
+另外，对于数组和对象，`typeof` 都会返回 `"object"`。如果你需要区分数组和普通对象，可以使用 `Array.isArray()` 方法来判断一个值是否为数组。
+
+```javascript
+let arrayVar = [1, 2, 3];
+console.log(typeof arrayVar); // "object"
+console.log(Array.isArray(arrayVar)); // true
+
+let objectVar = {key: 'value'};
+console.log(typeof objectVar); // "object"
+console.log(Array.isArray(objectVar)); // false
+```
+
+对于更复杂的类型判断，你可能需要使用 `Object.prototype.toString.call()` 方法，它可以返回更精确的类型信息。
+
+```javascript
+let dateVar = new Date();
+console.log(Object.prototype.toString.call(dateVar)); // "[object Date]"
+
+let regexVar = /abc/;
+console.log(Object.prototype.toString.call(regexVar)); // "[object RegExp]"
+```
+
+在准备面试时，了解这些基本的类型判断方法是很有帮助的，同时也要理解它们的边界情况和限制。
 
 
 ## 浏览器事件机制，如何实现事件委托，如何实现阻止冒泡
 
 
+浏览器的事件机制通常包括三个阶段：捕获阶段（Capturing Phase）、目标阶段（Target Phase）和冒泡阶段（Bubbling Phase）。
+
+1. **捕获阶段**：事件从文档的根节点往下传递到目标节点的过程。
+2. **目标阶段**：事件到达目标节点，触发目标节点的监听函数。
+3. **冒泡阶段**：事件从目标节点往上回传到文档的根节点的过程。
+
+### 实现事件委托
+
+事件委托是一种常用的事件处理模式，通过利用事件冒泡的原理，将子节点的事件监听器设置在父节点上，然后根据事件的目标元素（`event.target`）来判断子元素是否是事件的实际目标。
+
+以下是一个简单的事件委托的例子：
+
+```javascript
+// 假设有一个列表ul，我们要为每个li元素添加点击事件
+document.getElementById('myList').addEventListener('click', function(event) {
+    // 检查事件的实际目标是否是我们关心的元素
+    if (event.target.tagName.toLowerCase() === 'li') {
+        // 在这里处理点击事件
+        console.log('Clicked on li element');
+    }
+});
+```
+
+这段代码中，我们在父元素 `ul` 上设置了一个点击事件监听器，而不是直接在每个 `li` 元素上设置。当点击任何一个 `li` 元素时，事件会冒泡到 `ul`，然后触发监听器。监听器会检查事件的实际目标，如果是 `li` 元素，则执行相应的逻辑。
+
+### 阻止事件冒泡
+
+有时候，你可能不希望事件继续冒泡。你可以通过调用事件对象的 `stopPropagation` 方法来阻止冒泡：
+
+```javascript
+element.addEventListener('click', function(event) {
+    // 处理点击事件
+    console.log('Element clicked');
+
+    // 阻止事件继续冒泡
+    event.stopPropagation();
+});
+```
+
+在这个例子中，当点击 `element` 时，会输出日志，并且事件不会继续冒泡到父元素。
+
+### 注意
+
+在实际使用事件委托时，你需要注意以下几点：
+
+- 事件委托主要适用于那些自然会冒泡的事件，如 `click`、`mousedown` 等。并非所有事件都会冒泡，例如 `focus`、`blur` 和 `load` 事件就不会冒泡。
+- 事件委托可以减少事件监听器的数量，提高性能，尤其是在有大量相似子元素需要处理事件时。
+- 使用事件委托时，确保委托的事件是父元素和子元素都需要响应的事件类型。
+- 当事件的默认行为不是你想要的时，可以使用 `event.preventDefault()` 方法来取消事件的默认行为。比如，阻止链接的默认导航行为或表单的提交行为。
+
 ## 描述防抖和节流，实现节流，防抖代码
 
 
+## React的优化策略有哪些？
+
+在React应用中，性能优化通常是为了减少不必要的渲染次数、减少组件的更新开销、优化组件加载时间和管理状态更新的效率。以下是一些常见的React性能优化策略：
+
+### 1. 使用不可变数据结构
+使用不可变数据可以帮助避免不必要的渲染。当你使用不可变数据时，可以简单地比较引用来检测变化，这比深度比较要快得多。
+
+### 2. PureComponent 和 React.memo
+- **PureComponent**: 通过浅比较props和state来减少不必要的渲染。如果组件的props和state结构简单，那么使用 `PureComponent` 可以减少渲染次数。
+- **React.memo**: 是一个高阶组件，它与 `PureComponent` 类似，但用于函数组件。它会阻止组件在相同props的情况下重新渲染。
+
+### 3. shouldComponentUpdate
+在类组件中，可以使用 `shouldComponentUpdate` 生命周期方法来控制组件是否应该更新。通过返回 `true` 或 `false` 来决定组件是否进行更新。
+
+### 4. 使用key属性
+在渲染列表时，确保每个列表项都有一个唯一的 `key` 属性。这可以帮助React识别哪些项已经改变、添加或删除，从而减少不必要的元素创建和销毁。
+
+### 5. 动态导入和代码分割
+使用 `React.lazy` 和 `Suspense` 或其他库（如 `Loadable Components`）来实现动态导入和代码分割，从而将代码分割成小的块，并按需加载。
+
+### 6. 避免内联函数和对象
+在渲染方法或函数组件中直接定义内联函数和对象会在每次渲染时创建新的函数和对象，这可能会导致子组件不必要的重新渲染。
+
+### 7. 使用useCallback和useMemo
+- **useCallback**: 缓存函数，以便在依赖项不变的情况下跨渲染周期重用相同的函数实例。
+- **useMemo**: 缓存计算结果，只有在依赖项改变时才重新计算。
+
+### 8. 避免不必要的DOM操作
+尽量减少DOM操作，因为它们可能很昂贵。使用CSS动画代替JavaScript动画，使用CSS布局优化而不是通过JavaScript计算布局。
+
+### 9. 使用Web Workers
+对于复杂计算，可以使用Web Workers将计算从主线程移出，以避免阻塞UI渲染。
+
+### 10. 状态提升和Context
+适当使用状态提升和Context API来管理状态，避免不必要的组件嵌套和重新渲染。
+
+### 11. 使用Fragment避免额外的DOM节点
+使用 `React.Fragment` 或 `<>` 空标签来避免创建不必要的DOM节点，这有助于减少DOM树的大小。
+
+### 12. 监控和分析
+使用React DevTools进行性能分析，识别瓶颈。Profiler可以帮助你了解组件的渲染时间和原因。
+
+### 13. 服务端渲染(SSR)或静态站点生成(SSG)
+使用服务端渲染或静态站点生成可以提高首次加载性能，因为用户会直接收到一个渲染好的页面。
+
+### 14. 懒加载图片和组件
+对于图片和组件，可以实现懒加载，即只有当它们出现在视口中时才开始加载。
+
+性能优化通常涉及到权衡，需要根据具体情况来决定使用哪种策略。在进行优化之前，最好先进行性能分析，确定真正的性能瓶颈所在。
+
 
 ## 前端工程化的理解 ？
-  1. ast
+
+前端工程化是指在前端开发过程中，应用软件工程的原则和方法，以提高开发效率、降低维护成本、保证项目质量和可扩展性的一系列工作。前端工程化主要包括以下几个方面：
+
+### 1. 模块化
+模块化是指将复杂的系统分解成高内聚、低耦合的模块，使得每个模块可以独立开发、测试、维护。在前端开发中，模块化可以应用于JavaScript、CSS和HTML。比如，使用ES6的模块系统、CSS的预处理器如Sass或Less以及组件化的模板引擎。
+
+### 2. 组件化
+组件化是模块化的进一步深化。它将UI划分为独立的、可复用的组件，每个组件包含自己的逻辑和样式。在React、Vue、Angular等现代前端框架中，组件化是核心概念之一。
+
+### 3. 规范化
+规范化主要是指制定一系列标准和规范来指导开发工作，包括编码规范、组件库使用、Git分支管理、commit信息规范等，以确保团队成员之间的协作效率和代码的一致性。
+
+### 4. 自动化
+自动化是工程化中非常重要的一环。它包括代码构建、测试、部署等自动化流程。通过自动化工具（如Webpack、Babel、ESLint、Jest、Cypress等）来自动完成这些重复性的工作，提高开发效率和代码质量。
+
+### 5. 性能优化
+性能优化是前端工程化的重要目标之一。它包括加载性能优化（如代码分割、懒加载、资源压缩）、运行性能优化（如虚拟DOM、智能更新）和渲染性能优化（如CSS优化、避免回流和重绘）。
+
+### 6. 工具链
+工具链是支持前端工程化的工具和服务的集合，通常包括包管理器（如npm、yarn）、构建工具（如Webpack、Rollup）、代码转译（如Babel、TypeScript）、代码质量工具（如ESLint、Prettier）、测试框架（如Jest、Mocha）等。
+
+### 7. 持续集成和持续部署（CI/CD）
+通过持续集成（CI）和持续部署（CD）的实践，可以确保代码的质量和快速迭代。CI/CD可以帮助开发者在代码提交后自动运行测试、构建和部署到服务器。
+
+### 8. 版本管理和依赖管理
+合理地管理项目版本和依赖关系对于项目的长期维护至关重要。这包括使用版本控制系统（如Git）、遵循语义化版本控制规范（SemVer）、以及有效管理项目的依赖库。
+
+### 9. 开发环境和生产环境的分离
+确保开发环境、测试环境和生产环境的配置分离，可以帮助模拟不同的运行环境，减少因环境不一致导致的问题。
+
+### 10. 代码审查和文档
+代码审查是提高代码质量、分享知识和技术债务管理的重要手段。同时，良好的文档可以帮助新成员快速上手，也是项目可维护性的关键。
+
+总体来说，前端工程化是为了解决非功能性的问题，让开发者能够专注于功能开发，提高开发效率和项目质量，最终为用户提供更好的产品。随着技术的发展，前端工程化本身也在不断进化，涌现出更多的工具和实践。
 
 
 ## 移动端适配方案
 
+移动端适配是前端开发中的一个重要方面，主要是为了确保网页或应用界面在不同设备和屏幕尺寸上都能提供良好的用户体验。适配方案主要包括以下几种方法：
 
+### 1. 响应式网页设计 (Responsive Web Design, RWD)
+响应式设计通过使用流体网格、媒体查询和可伸缩的图片来实现不同设备上的视觉一致性。CSS3中的媒体查询（Media Queries）允许你根据不同的屏幕尺寸、分辨率等设备特性来应用不同的样式规则。
 
-12. 代码题
-  1. 大小写
-// 发送验证码的接口
-app.post('/code', (phone) => {
-    // fetchCode 属于微服务，有限流问题，一分钟只能处理 100 个
-    const code = await fetchCode(phone)
-    return code
-})
-
-// 发送验证码的接口
-app.post('/code', (phone) => {
-    // 消息队列 product
-    redis.lpush(phone)
-    return true
-})
-
-// 消息队列 consume
-while (phone = redis.lpop()) {
-    const code = await fetchCode(phone)
-    webhook(code)
-    publish(code)
-    await sleep(100)
+```css
+@media screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
 }
+```
+
+### 2. 移动优先 (Mobile First)
+在移动优先的策略中，设计师和开发者会先为移动设备设计网站，然后再扩展至桌面版本。这通常意味着在CSS中先编写针对小屏幕的样式，然后通过媒体查询添加额外的样式来适配更大的屏幕。
+
+### 3. 灵活布局 (Flexible Layout)
+使用百分比、vw（视口宽度）、vh（视口高度）等相对单位而不是固定单位（如像素）来创建布局，可以使布局更加灵活，更容易适应不同屏幕尺寸。
+
+### 4. REM单位
+REM是相对于根元素（html元素）的字体大小的单位。通过改变根元素的字体大小，可以实现对整个应用或网站的缩放。
+
+```css
+html { font-size: 62.5%; }
+body { font-size: 1.4rem; } /* equals to 14px */
+h1 { font-size: 2.4rem; } /* equals to 24px */
+```
+
+### 5. 视口单位 (Viewport Units)
+视口单位，如vw（视口宽度的1%）和vh（视口高度的1%），可以用来创建相对于视口大小的布局和字体大小。
+
+### 6. 图片和媒体的适配
+使用CSS的 `background-size` 属性和HTML的 `srcset` 属性来确保图片在不同分辨率下都能正确显示。
+
+```html
+<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="medium.jpg" alt="Responsive image">
+```
+
+### 7. 框架和工具
+使用前端框架如Bootstrap、Foundation等，它们提供了一套预定义的响应式网格系统和组件。
+
+### 8. 设备像素比 (Device Pixel Ratio, DPR)
+考虑设备像素比来为高清屏幕提供高分辨率的图片。
+
+### 9. 触控优化
+确保按钮、链接等触控目标的大小足够大，以适应手指触控操作。
+
+### 10. JavaScript适配
+在某些情况下，可能需要使用JavaScript来动态调整某些样式或元素，以适应屏幕尺寸的变化。
+
+### 11. PostCSS、Sass、LESS等预处理器
+使用预处理器来帮助生成响应式设计中需要的重复性代码。
+
+### 12. 测试和调试
+使用开发者工具的设备模拟功能以及在真实设备上进行测试，以确保适配方案的有效性。
+
+移动端适配是一个持续的过程，需要不断测试和调整来适应新设备和新的屏幕尺寸。随着技术的发展，可能会出现新的适配方法，但上述方法构成了目前移动端适配的基础。
+
+
+
+## Chrome PC版文档流支持的最小字号是什么？如何在Chrome中展示更小的字号？
+
+如果你希望在Chrome中实现小于12px的字体大小，虽然直接设置字体大小可能会受到浏览器的最小字号限制，但你可以采用一些技术手段或视觉技巧来达到类似效果。这里有几种方法：
+
+1. **使用缩放**:
+   - 你可以通过缩放整个元素来间接减小文字的显示大小。例如，如果你将一个元素及其内容缩小到原始尺寸的一半，那么即使字号设置为12px，实际上看起来也只有6px那么大。CSS的`transform: scale()`属性可以用于此目的。
+     ```css
+     .small-text {
+       transform: scale(0.5);
+       transform-origin: top left;
+     }
+     ```
+
+2. **使用视觉效果**:
+   - 利用视觉对比效果，例如将小字号的文本放置在大字号文本旁边，可以使得小字号文本在视觉上看起来更小。这不是直接减小字体大小，而是一种视觉错觉。
+
+3. **SVG文本**:
+   - 将文本作为SVG元素，然后调整SVG的大小。SVG元素的大小不受浏览器最小字号的限制，因此你可以将文本设置为任意小的尺寸。SVG也支持文本元素，这意味着你可以在SVG内部使用`<text>`标签，并通过调整SVG尺寸来控制文本大小。
+     ```html
+     <svg width="100" height="30">
+       <text x="0" y="15" font-family="Arial" font-size="6px">Your text here</text>
+     </svg>
+     ```
+
+4. **Canvas绘制**:
+   - 使用HTML5 Canvas绘制文字也是一种可能的方法。Canvas允许你以编程方式绘制图像和文本，包括非常小的字号。这种方法给了你更多的灵活性，但牺牲了一些文本的可访问性。
+
+每种方法都有其优缺点，比如使用`transform: scale()`可能会导致文本变得模糊，而使用SVG或Canvas则可能影响到文本的可选中性和可访问性。因此，在决定使用哪种方法之前，考虑你的具体需求和目标用户的体验非常重要。
+
+
+## PC移动端内容适配需要注意什么，涉及到哪些技术？
+
+在进行PC和移动端内容适配时，目标是确保网站或应用在不同设备上都能提供良好的用户体验。这通常需要关注布局的响应式设计、图像的优化、交互元素的适应性，以及加载时间的优化等多个方面。以下是一些主要技术和策略：
+
+### 1. 响应式网页设计 (Responsive Web Design, RWD)
+- **媒体查询（Media Queries）**：CSS媒体查询允许你根据不同的屏幕尺寸、分辨率等条件应用不同的样式规则。
+- **流式布局（Fluid Layouts）**：使用百分比宽度而非固定宽度，使布局能够根据父容器的大小动态调整。
+- **弹性布局（Flexbox）**：CSS的一种布局模式，能够让容器内的项能够按比例分配空间，对于复杂的布局非常有用。
+- **CSS网格（CSS Grid）**：强大的布局系统，可以处理二维布局，对于构建复杂的网页布局非常有帮助。
+
+### 2. 图像和媒体优化
+- **自适应图片（Responsive Images）**：使用`<picture>`元素或`srcset`属性，根据设备加载适当大小的图片。
+- **懒加载（Lazy Loading）**：只加载用户可见区域的内容，提高加载速度和性能。
+
+### 3. 交互元素的适应性
+- **触摸优化**：确保按钮、链接等元素在触摸屏上易于操作，可能需要调整元素的大小和间距。
+- **表单优化**：确保表单在各种设备上都易于填写，包括适当的输入类型和大小。
+
+### 4. 性能优化
+- **代码分割（Code Splitting）**：只加载用户当前需要的代码，减少首次加载时间。
+- **压缩资源（Minification）**：压缩CSS、JavaScript和图片文件，减少文件大小，提高加载速度。
+- **使用内容分发网络（CDN）**：加速全球用户的内容加载速度。
+
+### 5. 可访问性 (Accessibility)
+- 确保网站对所有用户，包括使用辅助技术的人士，都是可访问的。这包括适当的语义标记、可访问性标准的遵守等。
+
+### 6. 测试和验证
+- **跨浏览器和设备测试**：使用工具和真实设备测试你的网站或应用，确保在不同环境中都能正常工作。
+- **性能测试**：使用工具（如Google PageSpeed Insights、Lighthouse）来评估和优化网站性能。
+
+结合以上技术和策略，可以创建适应不同屏幕尺寸和设备的网站和应用，从而提供无缝且高效的用户体验。
+
+## React 的Hook是为了解决什么问题？
+
+React Hooks是React 16.8版本引入的一个重要特性，它允许你在不编写类组件的情况下使用state和其他React特性。Hooks解决了多个在React开发中长期存在的问题：
+
+### 1. 复用状态逻辑变得简单
+在Hooks之前，复用状态逻辑通常需要高阶组件（HOCs）或渲染属性（Render Props）等模式。这些模式虽然强大，但会增加组件树的复杂性，并使得代码难以理解。Hooks允许你在不改变组件结构的情况下复用状态逻辑，使得代码更加清晰和简洁。
+
+### 2. 组件难以理解的问题
+类组件要求开发者理解JavaScript中的`this`关键字和类的特性，这对于一些开发者来说可能是一个学习障碍。此外，类组件中生命周期方法的使用使得相关逻辑分散在多个地方，增加了理解和维护的难度。Hooks通过使用函数组件来管理状态和副作用，避免了`this`的复杂性，并将相关逻辑组织在一起，使得组件更易于理解和维护。
+
+### 3. 复杂组件变得难以管理
+在大型应用中，随着组件变得越来越复杂，管理其内部状态和生命周期变得困难。Hooks提供了如`useState`、`useEffect`、`useContext`等API，让状态管理和副作用的处理更加模块化和可预测，简化了复杂组件的开发和管理。
+
+### 4. 优化性能的困难
+在类组件中，优化性能（如防止不必要的渲染）通常需要使用额外的生命周期方法（如`shouldComponentUpdate`）或者React.memo等API。Hooks通过`useMemo`和`useCallback`等Hook，提供了更简单的方式来优化组件的性能。
+
+### 5. 更好的适配未来的React特性
+Hooks设计时考虑了未来React的并发模式（Concurrent Mode）和其他新特性的适配。使用Hooks开发的组件将能更好地利用React未来的性能改进和新特性。
+
+总的来说，React Hooks提供了一种更简单、更直观的方式来编写组件，通过解决状态逻辑复用、组件复杂性管理和性能优化等问题，让React开发变得更加高效和愉悦。
+
+## 如何监听localStorage里数据的变化？
+
+
+
+
+## 平时用哪些大模型？通过什么工具使用大模型，对大模型应用有什么看法

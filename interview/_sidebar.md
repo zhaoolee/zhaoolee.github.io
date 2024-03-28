@@ -1,1 +1,3 @@
 - [基础知识](interview/base.md)
+- [手写代码](interview/code.md)
+- [算法题](interview/algorithm.md)
