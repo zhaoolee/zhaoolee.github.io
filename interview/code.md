@@ -3,7 +3,6 @@
 
 ## 切分一个字符串
 
-
 ```javascript
 const text = `aaaa  "dd"  f   g;fd分
               1    "2dd"    113   512
@@ -452,25 +451,26 @@ sum(1)(2, 3, 4).sumof(); //返回 10
 sum(1, 2)(3, 4)(5).sumof(); //返回 15
 
 function sum(...args) {
-  let currentSum = args.reduce((acc, cur) => acc + cur, 0);
+  let currentValue = args.reduce((acc, cur) => acc + cur, 0);
 
   function innerSum(...newArgs) {
-    currentSum = currentSum + newArgs.reduce((acc, cur) => acc + cur, 0);
+    currentValue = newArgs.reduce((acc, cur) => acc + cur, currentValue);
+
     return innerSum;
   }
 
-  innerSum.sumof = function () {
-    return currentSum;
+  innerSum.sumof = () => {
+    return currentValue;
   };
 
   return innerSum;
 }
 
-console.log(sum(1, 5, 10).sumof());
+console.log(sum(1, 2).sumof()); //返回3
+console.log(sum(1, 2)(3).sumof()); //返回 6
+console.log(sum(1)(2, 3, 4).sumof()); //返回 10
+console.log(sum(1, 2)(3, 4)(5).sumof()); //返回 15
 
-console.log(sum(1, 5)(6).sumof());
-
-console.log(sum(1, 5)(6)(8).sumof());
 ```
 
 
@@ -499,4 +499,76 @@ console.log(compareSemver('1.2.3', '1.2.4')); // 返回 -1
 console.log(compareSemver('1.2.3', '1.2.3')); // 返回 0
 console.log(compareSemver('1.2.3', '1.3.0')); // 返回 -1
 console.log(compareSemver('1.3.0', '1.2.3')); // 返回 1
+```
+
+
+### 算法题：如何实现链表从 1，-1， 2， -2 ... 依次进行排列
+
+
+### 将扁平化数据转换为级联数据 listToTree
+
+```javascript
+function listToTree(arr) {
+  const result = [];
+
+  const idMapIndex = {};
+
+  arr.forEach((value, index) => {
+    idMapIndex[value.id] = index;
+    value.children = [];
+  });
+
+  console.log("idMapIndex==", idMapIndex);
+
+  arr.forEach((value, index) => {
+    let parent = arr[idMapIndex[value["pid"]]];
+
+    if (parent) {
+      parent.children.push(value);
+    } else {
+      result.push(value);
+    }
+  });
+
+  return result;
+}
+
+let arr = [
+  { id: 10, name: "部门5", pid: 8 },
+  { id: 2, name: "部门2", pid: 1 },
+  { id: 8, name: "部门4", pid: 3 },
+  { id: 12, name: "部门1", pid: 11 },
+  { id: 1, name: "部门1", pid: 0 },
+  { id: 3, name: "部门3", pid: 1 },
+  { id: 11, name: "部门1", pid: 0 },
+];
+const result = listToTree(arr);
+
+console.log("==result==", JSON.stringify(result, null, 2));
+
+```
+
+
+## 数据引用
+
+如果是修改则可以影响外部，如果是替换则不影响外部（指针变了）
+
+```javascript
+let nameList = ["Alan", "Tom"];
+
+let helloJson = { name: "zhaoolee", age: 12 };
+
+function changeName(nameList, helloJson) {
+  //   nameList = [];
+
+  //   helloJson = {};
+
+  nameList.push("new name");
+
+  helloJson.color = "red";
+}
+
+changeName(nameList, helloJson);
+console.log("==", nameList, helloJson);
+
 ```
