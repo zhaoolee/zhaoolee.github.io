@@ -1,2 +1,3 @@
 - [回到首页](https://zhaoolee.com)
 - [Chrome插件英雄榜](https://zhaoolee.com/ChromeAppHeroes/)
+- [在线工具秘籍](https://zhaoolee.com/OnlineToolsBook/)

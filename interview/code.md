@@ -572,3 +572,152 @@ changeName(nameList, helloJson);
 console.log("==", nameList, helloJson);
 
 ```
+
+
+## 判断一个字符串是否为合法的IP
+
+```javascript
+function isValidIP(ip) {
+  console.log("==ip==", ip);
+  const parts = ip.split(".");
+
+  if (parts.length !== 4) {
+    return false;
+  }
+
+  for (let i = 0; i < parts.length; i++) {
+    const part = parts[i];
+    // 检测是否长度大于0
+
+    if (part.length === 0) {
+      return false;
+    }
+
+    // 检测是否为数字
+
+    if (/^\d+$/.test(part) === false) {
+      return false;
+    }
+
+    // 检测数字是否大于255之间
+
+    if (parseInt(part) > 255) {
+      return false;
+    }
+
+    // 检测是否以0开头，但实际长度大于1
+
+    if (part[0] === "0" && part.length > 1) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log("===");
+// 示例
+console.log(isValidIP("192.168.1.1")); // 应该返回 true
+console.log(isValidIP("0.0.0.0")); // 应该返回 true
+console.log(isValidIP("123.45.67.89")); // 应该返回 true
+console.log(isValidIP("256.255.255.255")); // 应该返回 false
+console.log(isValidIP("192.168.1")); // 应该返回 false
+console.log(isValidIP("192.168.01.1")); // 应该返回 false
+console.log(isValidIP("192.168.1.256")); // 应该返回 false
+
+```
+
+
+## 数组乘积最小解
+
+输入[2,3,4,5,6] 128 输出4
+
+
+```javascript
+function minProductSubset(nums, minValue) {
+  const sortNums = nums.sort((a, b) => b - a);
+
+  let result = 0;
+
+  let currentValue = 1;
+
+  for (const num of sortNums) {
+    currentValue = currentValue * num;
+    result++;
+    if (currentValue >= minValue) {
+      return result;
+    }
+  }
+
+  return nums.length;
+}
+
+console.log(minProductSubset([2, 3, 4, 5, 6], 128));
+
+```
+
+
+## 封装fetch请求三次
+
+
+请给我一段JS 函数，封装一个fetch，请求失败后，可以自动重试三次，每次失败后延迟3秒进行请求，如果三次都失败，则返回失败态，如果三次中有一次请求成功，则直接返回请求结果
+
+```javascript
+async function fetchRetry(url, options, timeout = 3000, retryNum = 3) {
+  let currentIndex = 0;
+  let lastError = null;
+
+  while (currentIndex < retryNum) {
+    try {
+      const response = await fetch(url, options);
+      if (!response.ok) {
+        throw new Error(`HTTP error, status = ${response.status}`);
+      }
+      return response;
+    } catch (error) {
+      lastError = error;
+      currentIndex++;
+      if (currentIndex >= retryNum) {
+        throw new Error("Reach max retryNum: " + lastError.message);
+      }
+      await new Promise(resolve => setTimeout(resolve, timeout));
+    }
+  }
+}
+
+```
+
+
+## 进位
+
+
+```javascript
+
+function add(num1, num2) {
+  let result = "";
+  let carry = 0;
+  num1 = num1.padStart(Math.max(num1.length, num2.length), "0");
+  num2 = num2.padStart(Math.max(num1.length, num2.length), "0");
+
+  for (let i = num1.length - 1; i >= 0; i--) {
+    let currentValue = +num1[i] + +num2[i] + carry;
+    carry = Math.floor(currentValue / 10);
+    result = "" + (currentValue % 10) + result;
+  }
+
+  if (carry > 0) {
+    result = "" + carry + result;
+  }
+
+  return result;
+}
+
+```
+
+```javascript
+console.log(add("123", "456")); // 应该输出 "579"
+console.log(add("111111111111111111", "222222222222222222")); // 应该输出 "333333333333333333"
+console.log(add("999", "1")); // 应该输出 "1000"，检查进位
+console.log(add("1", "999")); // 应该输出 "1000"，检查进位
+console.log(add("123456789012345678901234567890", "987654321098765432109876543210")); // 应该输出 "1111111110111111111011111111100"，检查非常大的数字
+```
