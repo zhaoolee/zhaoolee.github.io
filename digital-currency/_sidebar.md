@@ -1,0 +1,2 @@
+- [如何挖狗狗币](digital-currency/2025-01-22-get-dogecoin.md)
+- [家用显卡挖什么币可小赚？英伟达显卡与矿机的差距有多大](digital-currency/2025-01-24-miner.md)

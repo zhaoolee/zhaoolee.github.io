@@ -1,5 +1,6 @@
 - [树莓派不吃灰](pi/)
 - [游戏](game/)
+- [数字货币](digital-currency/)
 - [工作](work/)
 - [杂谈](chat/)
 - [面试](interview/)
