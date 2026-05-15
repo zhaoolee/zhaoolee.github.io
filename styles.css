@@ -31,12 +31,17 @@
   --muted: #8d7761;
   --accent: #8f5c2c;
   --accent-strong: #6f4219;
+  --toggle-line: #5a3214;
   --line: rgba(206, 190, 170, 0.72);
   --shadow: 0 28px 60px rgba(95, 67, 38, 0.12);
   --reader-sidebar: rgb(251, 247, 237);
   --reader-sidebar-line: rgb(228, 218, 209);
-  --reader-article-bg: linear-gradient(180deg, rgba(255, 253, 249, 0.99), rgba(248, 239, 225, 0.98));
-  --reader-frame: rgba(208, 205, 198, 0.9);
+  --reader-article-bg: #fefcf6;
+  --reader-frame: rgba(237, 233, 225, 0.92);
+  --reader-sheet-shadow: 0 24px 42px rgba(89, 65, 34, 0.12);
+  --reader-corner-size: 5px;
+  --reader-corner-x: 5px;
+  --reader-corner-y: 5px;
   --reader-code-bg: rgba(102, 76, 49, 0.08);
   --topbar-height: 62px;
   --export-button-bg: linear-gradient(180deg, rgb(129, 111, 97) 0%, rgb(115, 99, 87) 100%);
@@ -246,7 +251,7 @@ input {
     0 2px 10px rgba(42, 29, 19, 0.2);
   opacity: 1 !important;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
 }
 
 .sidebar-toggle-button::before,
@@ -258,7 +263,7 @@ input {
   width: 18px;
   height: 2px;
   display: none;
-  background: var(--accent-strong) !important;
+  background: var(--toggle-line) !important;
   transform: translate(-50%, -50%);
   z-index: 2;
 }
@@ -270,21 +275,21 @@ input {
   width: 18px;
   height: 2px;
   display: none;
-  background: var(--accent-strong);
-  z-index: 2;
+  background: var(--toggle-line) !important;
+  z-index: 3;
 }
 
 .sidebar-toggle span {
   width: 18px;
   height: 2px;
   margin: 0;
-  background-color: var(--accent-strong) !important;
+  background-color: var(--toggle-line) !important;
   opacity: 1;
   position: relative;
   transition:
     opacity 160ms ease,
     transform 180ms ease;
-  z-index: 2;
+  z-index: 3;
 }
 
 .sidebar-toggle span + span {
@@ -305,6 +310,22 @@ input {
   color: var(--ink);
   height: 30px;
   padding: 0 12px;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.sidebar .search input:focus,
+.sidebar .search input:focus-visible,
+.search input:focus,
+.search input:focus-visible {
+  outline: 0 !important;
+  border-color: rgb(218, 205, 193) !important;
+  background: rgb(252, 252, 252) !important;
+  box-shadow:
+    rgba(0, 0, 0, 0.12) 0 1px 4px inset,
+    0 0 0 2px rgba(145, 104, 71, 0.06) !important;
 }
 
 .search input::placeholder {
@@ -441,9 +462,7 @@ input {
   display: block;
   background: var(--reader-article-bg);
   border: 0;
-  box-shadow:
-    0 22px 40px rgba(88, 60, 31, 0.14),
-    0 0 0 1px rgba(143, 92, 44, 0.08);
+  box-shadow: var(--reader-sheet-shadow);
   width: min(920px, 100%);
   max-width: none;
   min-height: max-content;
@@ -468,6 +487,36 @@ input {
 
 .markdown-section::after {
   inset: 13px;
+}
+
+.markdown-section > .reader-sheet-corner {
+  position: absolute;
+  width: var(--reader-corner-size);
+  height: var(--reader-corner-size);
+  border: 1px solid rgba(237, 233, 225, 0.76);
+  background: transparent;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.reader-sheet-corner-top-left {
+  left: var(--reader-corner-x);
+  top: var(--reader-corner-y);
+}
+
+.reader-sheet-corner-top-right {
+  right: var(--reader-corner-x);
+  top: var(--reader-corner-y);
+}
+
+.reader-sheet-corner-bottom-left {
+  left: var(--reader-corner-x);
+  bottom: var(--reader-corner-y);
+}
+
+.reader-sheet-corner-bottom-right {
+  right: var(--reader-corner-x);
+  bottom: var(--reader-corner-y);
 }
 
 .markdown-section > * {
@@ -616,6 +665,18 @@ input {
   width: 100%;
 }
 
+.markdown-section tr {
+  background-color: rgba(255, 252, 247, 0.82);
+}
+
+.markdown-section tr:nth-child(2n) {
+  background-color: rgba(250, 242, 229, 0.82);
+}
+
+.markdown-section thead tr {
+  background-color: rgba(246, 236, 221, 0.86);
+}
+
 .markdown-section th,
 .markdown-section td {
   border: 1px solid rgba(177, 152, 122, 0.18);
@@ -675,7 +736,7 @@ input {
     right: auto;
     width: 100vw;
     min-height: var(--topbar-height);
-    justify-content: flex-start;
+    justify-content: flex-end;
     gap: 8px;
     margin: 0;
     padding: 0 12px 0 60px;
@@ -685,13 +746,31 @@ input {
   }
 
   .app-nav ul {
-    justify-content: flex-start;
+    justify-content: flex-end;
     gap: 8px;
     flex: 0 0 auto;
   }
 
   .app-nav::before {
     inset: 0 0 0 60px !important;
+    z-index: 0;
+  }
+
+  body > main::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: var(--topbar-height);
+    background:
+      linear-gradient(180deg, rgba(116, 103, 95, 0.96), rgba(90, 80, 74, 0.98));
+    pointer-events: none;
+    z-index: 9990;
+  }
+
+  body.close > main::before {
+    display: none;
   }
 
   .app-nav a {

@@ -7,7 +7,7 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <link rel="stylesheet" href="./styles.css?v=20260514-sidebar-list-lines2">
+  <link rel="stylesheet" href="./styles.css?v=20260515-notes-paper-corners">
   <link rel="icon" type="image/png" href="./logo.png">
 </head>
 <body>
@@ -19,6 +19,25 @@
       subMaxLevel: 6,
       themeColor: '#192A4A',
       search: 'auto', // 默认值
+      plugins: [
+        function (hook) {
+          hook.doneEach(function () {
+            var positions = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
+            document.querySelectorAll('.markdown-section').forEach(function (section) {
+              positions.forEach(function (position) {
+                var className = 'reader-sheet-corner-' + position;
+                if (section.querySelector('.' + className)) {
+                  return;
+                }
+                var corner = document.createElement('span');
+                corner.className = 'reader-sheet-corner ' + className;
+                corner.setAttribute('aria-hidden', 'true');
+                section.insertBefore(corner, section.firstChild);
+              });
+            });
+          });
+        }
+      ],
     }
   </script>
   <!-- Docsify v4 -->
