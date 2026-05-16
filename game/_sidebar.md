@@ -1,1 +1,2 @@
 - [《荒野之息》 重新定义开放世界的真谛](game/2020-01-13-zelda.md)
+- [在Ubuntu稳定运行DNF美服版DFO](game/2026-05-16-dnf-dfo.md)
