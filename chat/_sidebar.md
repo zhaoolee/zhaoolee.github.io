@@ -1,3 +1,5 @@
+- [为什么大家喜欢看 AI 笑话？](chat/2026-06-26-ai-joke.md)
+- [如何用AI做游戏赚钱？](chat/2026-06-24-game-make-money.md)
 - [小游戏开发者的成本控制](chat/2026-06-23-part-time-job.md)
 - [网站个人网站换云服务供应商备案的一些无用知识](chat/2023-07-29-blog.md)
 - [读博客应当是令人愉悦的](chat/2023-07-31-rss-blogs.md)
