@@ -5,8 +5,6 @@ categories: ["游戏"]
 draft: false
 ---
 
-# 在Ubuntu运行DNF美服版DFO
-
 ![](index.assets/361d20c4c69dfda0210ac8f0c39550e4b26ff3bbf4d62e52451a4011cb408954.png)
 
 DNF是个很经典的游戏，但是马服游戏，不充钱玩个屁。如果想要玩的爽一些，可以考虑玩美服。

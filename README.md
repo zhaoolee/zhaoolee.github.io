@@ -1,4 +1,14 @@
-# zhaoolee 的 Hugo 博客
+# zhaoolee 的锤子便签风格的 Hugo 博客
+
+
+![](./README.assets/a6a16474f6fe45bbfa1415771d08eea98ac18933b65cd5dcd49d55cf42a46ea4.png)
+
+## HUGO主题调优
+
+- 支持按文章发布时间或专题查看
+- Gitbook结构，左侧文章列表，右侧文章结构导航
+- 文章与图片在相同目录，方便分享，Typora编辑友好
+
 
 ## 本地预览
 
