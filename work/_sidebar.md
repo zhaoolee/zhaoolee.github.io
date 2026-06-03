@@ -1,6 +1,0 @@
-- [从DigitalOcean搞个4美刀每月的印度IP穷鬼套餐，订阅印度区油管，每月500GB流量，超快网速，上行1000MB，下行5000MB](work/2026-01-21-in-ip.md)
-- [公司内网使用Clash Party tun模式，保持内部DNS解析内部域名的技巧](work/2026-01-12-network.md)
-- [编程是手段，不是出路](work/2020-01-12-programmer.md)
-- [命令行测试服务器上传下载的带宽](work/2023-07-31-speedtest.md)
-- [Linux服务器之间迁移数据的技巧](work/2023-07-30-rsync-data.md)
-- [解决PM2 Log文件占用6.8GB的问题，设置Log文件自动清理](work/2023-08-01-pm2.md)

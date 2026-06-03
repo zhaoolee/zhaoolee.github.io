@@ -1,0 +1,26 @@
+{{ define "main" }}
+  {{ $hasToc := gt (len (findRE "<li>" .TableOfContents)) 0 }}
+  <div class="article-page{{ if $hasToc }} has-toc{{ end }}">
+    {{ if $hasToc }}
+      <aside class="article-toc" aria-label="文章目录">
+        <div class="article-toc-title">目录</div>
+        {{ .TableOfContents }}
+      </aside>
+    {{ end }}
+    <article class="reader-sheet">
+      <span class="reader-sheet-corner reader-sheet-corner-top-left" aria-hidden="true"></span>
+      <span class="reader-sheet-corner reader-sheet-corner-top-right" aria-hidden="true"></span>
+      <span class="reader-sheet-corner reader-sheet-corner-bottom-left" aria-hidden="true"></span>
+      <span class="reader-sheet-corner reader-sheet-corner-bottom-right" aria-hidden="true"></span>
+      <header class="article-header">
+        <h1>{{ .Title }}</h1>
+        {{ with .Date }}
+          <time datetime="{{ .Format "2006-01-02" }}">{{ .Format "2006-01-02" }}</time>
+        {{ end }}
+      </header>
+      <div class="article-content">
+        {{ .Content }}
+      </div>
+    </article>
+  </div>
+{{ end }}

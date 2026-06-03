@@ -1,8 +1,9 @@
+__pycache__/
+*.py[cod]
 .DS_Store
-**/.DS_Store
-._*
-
-# Local browser test artifacts
+public/
+resources/_gen/
+.hugo_build.lock
 .playwright-cli/
 .playwright-mcp/
-output/playwright/
+output/
