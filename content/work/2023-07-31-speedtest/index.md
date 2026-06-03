@@ -5,9 +5,6 @@ categories: ["工作"]
 draft: false
 ---
 
-# Linux通过命令行测试服务器上传下载的带宽
-
-
 由于阿里云的续费价格超贵, 我的网站阿里云迁移到了天翼云。
 
 阿里云的带宽为5MB, 天翼云的带宽为10MB, 为了测试服务器的带宽是否足量, 推荐一个在命令行直接测试服务器带宽的工具 **speedtest-cli**
@@ -18,13 +15,13 @@ draft: false
 
 CentOS 安装命令
 
-```
+```bash
 yum install speedtest-cli -y
 ```
 
 ubuntu 安装命令
 
-```
+```bash
 apt install  speedtest-cli -y
 ```
 

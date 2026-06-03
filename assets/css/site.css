@@ -283,6 +283,11 @@ a:hover {
   white-space: nowrap;
 }
 
+.article-toc-root a {
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
 .article-toc li li a {
   color: rgba(99, 87, 83, 0.62);
   font-size: 12px;
@@ -402,6 +407,21 @@ a:hover {
 .article-content table,
 .article-content pre {
   margin-bottom: 20px;
+}
+
+.article-content table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.article-content th,
+.article-content td {
+  border-bottom: 1px solid rgba(206, 190, 170, 0.62);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
 }
 
 .article-content img {

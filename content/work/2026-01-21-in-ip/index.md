@@ -5,8 +5,6 @@ categories: ["工作"]
 draft: false
 ---
 
-# 从DigitalOcean搞个4美刀每月的印度IP穷鬼套餐，订阅印度区油管，每月500GB流量，上行1000MB，下行5000MB
-
 ## 印度IP的好处
 
 目前油管会员家庭组严查IP，美区个人订阅贵的要死，很多低价区类似土耳其区风控超级严格，而印度区的价格适中，风控也没那么严格，成为奈飞小铺等代充平台充值油管会员的唯一选项。
@@ -22,7 +20,7 @@ draft: false
 
 ## 开机后，通过ssh连接，我们需要为512MB内存的机型，创建1GB Swap（交换分区），否则系统在运行或安装软件时极易因为内存不足（OOM）而崩溃
 
-```
+```bash
 # 创建文件
 sudo fallocate -l 1G /swapfile
 # 设置权限（重要）： 出于安全考虑，必须限制只有 root 用户能访问该文件
@@ -31,7 +29,7 @@ sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 # 启用 Swap
 sudo swapon /swapfile
-备份 fstab 文件（以防万一）
+# 备份 fstab 文件（以防万一）
 sudo cp /etc/fstab /etc/fstab.bak
 # 写入配置
 echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab

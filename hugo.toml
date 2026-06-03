@@ -38,7 +38,3 @@ summaryLength = 120
     name = "杂谈"
     url = "/chat/"
     weight = 40
-  [[menu.main]]
-    name = "面试"
-    url = "/interview/"
-    weight = 50
