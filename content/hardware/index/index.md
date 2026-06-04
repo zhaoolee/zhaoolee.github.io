@@ -1,6 +1,7 @@
 ---
 title: "自用硬件推荐清单"
 date: 2026-06-04
+lastmod: 2026-06-04
 categories: ["硬件"]
 draft: false
 ---

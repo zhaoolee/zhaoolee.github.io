@@ -1,6 +1,7 @@
 ---
 title: "自用软件推荐清单"
 date: 2026-06-04
+lastmod: 2026-06-04
 categories: ["软件"]
 draft: false
 ---
