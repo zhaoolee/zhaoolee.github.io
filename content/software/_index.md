@@ -1,7 +1,7 @@
 ---
 title: "软件"
 categories: ["软件"]
-weight: 35
+weight: 10
 draft: false
 ---
 

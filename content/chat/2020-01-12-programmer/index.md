@@ -1,7 +1,9 @@
 ---
 title: "编程是手段，不是出路"
 date: 2020-01-12
-categories: ["工作"]
+categories: ["杂谈"]
+aliases:
+  - /work/2020-01-12-programmer/
 draft: false
 ---
 

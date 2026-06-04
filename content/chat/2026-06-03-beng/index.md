@@ -1,7 +1,9 @@
 ---
 title: “班味儿”就是要能绷得住
 date: 2026-06-03
-categories: ["工作"]
+categories: ["杂谈"]
+aliases:
+  - /work/2026-06-03-beng/
 draft: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "杂谈"
 categories: ["杂谈"]
-weight: 40
+weight: 60
 draft: false
 ---
 

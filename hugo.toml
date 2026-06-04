@@ -23,26 +23,30 @@ summaryLength = 120
 
 [menu]
   [[menu.main]]
-    name = "游戏"
-    url = "/game/"
-    weight = 10
-  [[menu.main]]
-    name = "数字货币"
-    url = "/digital-currency/"
-    weight = 20
-  [[menu.main]]
-    name = "工作"
-    url = "/work/"
-    weight = 30
-  [[menu.main]]
     name = "软件"
     url = "/software/"
-    weight = 35
+    weight = 10
   [[menu.main]]
     name = "硬件"
     url = "/hardware/"
-    weight = 37
+    weight = 20
+  [[menu.main]]
+    name = "实用IT技术"
+    url = "/work/"
+    weight = 30
+  [[menu.main]]
+    name = "游戏"
+    url = "/game/"
+    weight = 40
+  [[menu.main]]
+    name = "数字货币"
+    url = "/digital-currency/"
+    weight = 50
   [[menu.main]]
     name = "杂谈"
     url = "/chat/"
-    weight = 40
+    weight = 60
+  [[menu.main]]
+    name = "关于"
+    url = "/about/"
+    weight = 70
