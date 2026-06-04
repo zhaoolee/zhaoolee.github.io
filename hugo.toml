@@ -20,6 +20,7 @@ summaryLength = 120
 [params]
   description = "zhaoolee的自留地"
   author = "zhaoolee"
+  googleAnalyticsID = "G-E15JX4G00J"
 
 [menu]
   [[menu.main]]
