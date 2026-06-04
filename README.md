@@ -1,7 +1,10 @@
-# zhaoolee 的锤子便签风格的 Hugo 博客
+# 锤子便签风格的 Hugo 博客
 
 
-![](./README.assets/a6a16474f6fe45bbfa1415771d08eea98ac18933b65cd5dcd49d55cf42a46ea4.png)
+![](./README.assets/747fd4bf606aa42aab68da5ba269122599f3bd7063eb0279bbe62adb1c0b96bf.png)
+
+
+![](./README.assets/9b9797635df3b40f1bc4ff51e5696aa77cad59ad20de4b7a0251e3ad6f573f35.png)
 
 ## HUGO主题调优
 
