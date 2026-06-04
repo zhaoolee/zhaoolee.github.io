@@ -1,7 +1,7 @@
 ---
 title: "命令行测试服务器上传下载的带宽"
 date: 2023-07-31
-categories: ["工作"]
+categories: ["实用IT技术"]
 draft: false
 ---
 

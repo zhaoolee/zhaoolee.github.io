@@ -32,6 +32,8 @@
   --accent-strong: #6f4219;
   --sidebar: rgb(251, 247, 237);
   --sidebar-line: rgb(228, 218, 209);
+  --sidebar-ink: #5b4638;
+  --sidebar-muted: #8a6847;
   --sheet-shadow: 0 24px 42px rgba(89, 65, 34, 0.12);
   --base-font-family: "OPPOSans", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB",
     "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -69,6 +71,28 @@ a:hover {
   color: var(--accent);
 }
 
+.article-content a,
+.post-list a,
+.site-brand {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: center calc(100% - 0.08em);
+  background-size: 0 1px;
+  transition:
+    color 140ms ease,
+    background-size 180ms ease;
+}
+
+.article-content a:hover,
+.post-list a:hover,
+.site-brand:hover {
+  background-size: 100% 1px;
+}
+
+.article-content a:has(img) {
+  background-image: none;
+}
+
 .site-shell {
   display: grid;
   grid-template-columns: 300px minmax(0, 1fr);
@@ -82,7 +106,7 @@ a:hover {
   overflow-y: auto;
   background: var(--sidebar);
   box-shadow: rgba(0, 0, 0, 0.1) 1px 0 3px 0;
-  color: rgba(99, 87, 83, 0.84);
+  color: var(--sidebar-ink);
   z-index: 20;
 }
 
@@ -101,16 +125,30 @@ a:hover {
   box-shadow: 0 10px 14px rgba(251, 247, 237, 0.92);
 }
 
-.sidebar h1 {
-  margin: 0 8px 12px;
-  padding: 0;
+.site-brand {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 6px 12px;
+  color: var(--accent-strong);
   font-size: 18px;
   font-weight: 700;
+  line-height: 1.2;
 }
 
-.sidebar h1 a {
-  display: inline-block;
-  color: var(--accent-strong);
+.site-brand img {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  border-radius: 8px;
+}
+
+.site-brand span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .sidebar-mode-toggle {
@@ -130,7 +168,7 @@ a:hover {
   border: 0;
   border-radius: 6px;
   background: transparent;
-  color: rgba(99, 87, 83, 0.72);
+  color: var(--sidebar-ink);
   cursor: pointer;
   font-family: var(--base-font-family);
   font-size: 13px;
@@ -159,7 +197,7 @@ a:hover {
   min-height: 46px;
   display: block;
   border-bottom: 1px solid var(--sidebar-line);
-  color: rgba(99, 87, 83, 0.82);
+  color: var(--sidebar-ink);
   font-size: 14px;
   line-height: 1.45;
   overflow: hidden;
@@ -172,10 +210,18 @@ a:hover {
   min-height: 42px;
   background: rgba(255, 251, 245, 0.38);
   border-bottom-color: rgba(228, 218, 209, 0.78);
-  color: rgba(99, 87, 83, 0.76);
-  font-size: 13px;
-  font-weight: 400;
+  color: #655044;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
   padding: 10px 16px 10px 38px;
+}
+
+.sidebar-nav-sections > ul > li > a {
+  min-height: 48px;
+  color: #4f392b;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .sidebar-nav-latest a {
@@ -192,9 +238,9 @@ a:hover {
 
 .sidebar-post-meta {
   margin-bottom: 4px;
-  color: rgba(143, 92, 44, 0.68);
+  color: var(--sidebar-muted);
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.2;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -204,8 +250,9 @@ a:hover {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  font-size: 13px;
-  line-height: 1.45;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .sidebar-nav a:hover,
@@ -374,7 +421,7 @@ a:hover {
   position: relative;
   z-index: 1;
   color: var(--ink);
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.9;
 }
 
@@ -569,7 +616,7 @@ a:hover {
   }
 
   .article-content {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .post-list li {

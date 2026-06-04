@@ -8,7 +8,7 @@ aliases:
 draft: false
 ---
 
-![](./index.assets/1e2defa8a28d2f4471d946e5e86252e58b3849a94c4dd0e1757c52890643d78c.png)
+![AI 销冠智能体和职场班味儿主题配图](./index.assets/1e2defa8a28d2f4471d946e5e86252e58b3849a94c4dd0e1757c52890643d78c.png)
 
 自从 AI 大模型变强之后，有些人认为 AI 可以搞定一切(当然可能是想降本增效找个由头),比如销售这件事，竟然也有人认为可以通过 AI 来复刻无数个“销冠”。
 

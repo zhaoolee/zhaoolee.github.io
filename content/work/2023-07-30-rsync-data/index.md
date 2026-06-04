@@ -1,7 +1,7 @@
 ---
 title: "Linux服务器之间迁移数据的技巧"
 date: 2023-07-30
-categories: ["工作"]
+categories: ["实用IT技术"]
 draft: false
 ---
 
@@ -34,5 +34,4 @@ rsync -av A服务器用户名@A服务器IP:/opt/EasyTypora  /opt
 ```
 
 运行命令后, B服务器 `/opt` 目录下会自动创建文件夹 `EasyTypora`, 并从A服务器同步`/opt/EasyTypora`中的内容到B服务器的`/opt/EasyTypora` 目录。
-
 

@@ -2,14 +2,13 @@
 title: "zhaoolee的自留地"
 draft: false
 ---
-
-## zhaoolee: 一个热衷开源事业的程序员 👋
+# zhaoolee的自留地
 
 MAIL：[zhaoolee@gmail.com](mailto:zhaoolee@gmail.com)
 
 ![zhaoolee](https://readme-stats-fast.vercel.app/api?username=zhaoolee)
 
-## zhaoolee折腾的一些好玩的
+## zhaoolee写的一些好玩的开源项目
 
 ### [玄乎儿分光镜](https://github.com/zhaoolee/cyber-fortune-telling)
 

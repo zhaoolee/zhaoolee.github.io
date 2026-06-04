@@ -1,10 +1,19 @@
 <!doctype html>
 <html lang="{{ site.Language.Locale | default "zh-CN" }}">
   <head>
+    {{- $description := site.Params.description -}}
+    {{- with .Description -}}
+      {{- $description = . -}}
+    {{- else -}}
+      {{- with .Summary -}}
+        {{- $description = . | plainify | htmlUnescape | chomp -}}
+      {{- end -}}
+    {{- end -}}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ site.Params.description }}">
+    <meta name="description" content="{{ $description | plainify | htmlUnescape | replaceRE "\\s+" " " | replaceRE "^\\s+|\\s+$" "" | truncate 160 }}">
     <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} - {{ site.Title }}{{ end }}</title>
+    <link rel="canonical" href="{{ .Permalink }}">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     {{ with resources.Get "css/site.css" }}
       {{ with . | minify | fingerprint "sha256" }}

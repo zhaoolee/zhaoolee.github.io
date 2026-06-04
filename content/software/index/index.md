@@ -16,13 +16,13 @@ draft: false
 
 对屏幕框选截图后，会自动 OCR，然后调用常用免费接口，并行翻译，也支持离线，也提供接口调用，完美的翻译软件！
 
-![](./index.assets/7aa9ef2ad8d06aa6bd9a47efb00ccc081e33803135ee6e7258a2b30d80e6e68c.png)
+![Pot 软件进行屏幕 OCR 翻译的界面截图](./index.assets/7aa9ef2ad8d06aa6bd9a47efb00ccc081e33803135ee6e7258a2b30d80e6e68c.png)
 
 ## [10. PPduck：图片压缩软件，可买断](https://ppduck.com/)
 
-![](./index.assets/8415f88007f2dc3146348cc8991b821e768a68a4892c2ee9753b57cee168204a.png)
+![PPduck 图片压缩软件的主界面截图](./index.assets/8415f88007f2dc3146348cc8991b821e768a68a4892c2ee9753b57cee168204a.png)
 
-![](./index.assets/0b080fede91c9b6aef42677c332f77d8f684f4bf892d54109e23073650e85f50.png)
+![PPduck 图片压缩前后体积对比截图](./index.assets/0b080fede91c9b6aef42677c332f77d8f684f4bf892d54109e23073650e85f50.png)
 
 一个主打视觉无损的图片压缩软件，使用丝滑，交互流畅。
 
@@ -36,7 +36,7 @@ draft: false
 
 免费使用，可长截图，可录视频，可 OCR，在 macOS 难有平替。（非刚需的功能需要会员，如果想支持开发团队，可终身买断，大概一百多块钱）
 
-![](./index.assets/d21dc0c08384fc361c1ed777cd2de0187cb927a28243eca3ba153d2520d07808.png)
+![PixPin 截图 OCR 和长截图工具界面截图](./index.assets/d21dc0c08384fc361c1ed777cd2de0187cb927a28243eca3ba153d2520d07808.png)
 
 ## [7. RustDesk：远程软件，可买断](https://rustdesk.com/)
 
@@ -52,7 +52,7 @@ Plex 可以自动为硬盘的电影进行刮削，生成优雅的海报墙。配
 
 Alfred 是 macOS 启动台的替代品，我用 Alfred 有 10 年了，这个软件真的是稳！
 
-![](./index.assets/04602155872bf13afaaaa83fbde2ed46596c14fced222ce4bae8f8d09169fc65.png)
+![Alfred macOS 启动器搜索界面截图](./index.assets/04602155872bf13afaaaa83fbde2ed46596c14fced222ce4bae8f8d09169fc65.png)
 
 ## [4. Clash Party：科学上网工具，开源软件](https://clashparty.org/)
 
@@ -72,13 +72,13 @@ GitHub：[mihomo-party-org/clash-party](https://github.com/mihomo-party-org/clas
 
 ## [2. Typeless：氛围编程必备软件，可学生优惠订阅](https://www.typeless.com/)
 
-![](./index.assets/fa92aba4e28851a39461c3e3002826a2000415834c1faf55e730661682102273.png)
+![Typeless 语音输入软件界面截图](./index.assets/fa92aba4e28851a39461c3e3002826a2000415834c1faf55e730661682102273.png)
 
 Typeless 的核心价值是让你少打字，非常适合 Vibe Coding 场景。它可以使用气流声讲话，也就是“古神的低语”，和 DJI 的麦克风是天作之合。
 
 作为一个年费用户，我还专门开了一个仓库，去分享使用经验：[zhaoolee/typeless](https://github.com/zhaoolee/typeless)
 
-![](./index.assets/e38cd0ff34b72d85aa8dc4440ed85a9c88d23e417870c1f9fbabb37632f690e2.png)
+![Typeless 推荐注册页面截图](./index.assets/e38cd0ff34b72d85aa8dc4440ed85a9c88d23e417870c1f9fbabb37632f690e2.png)
 
 通过这个链接注册，你和作者都可以获得 5 美元赠金：[Typeless 推荐注册](https://www.typeless.com/refer?code=I238ZPZ)
 
@@ -88,4 +88,4 @@ Typora 一如既往的稳健，`Copy image to ./${filename}.assets` 的图片存
 
 在我长达 6 年的使用过程中，Typora 从没有掉过链子。我还为它写了一个图床插件：[EasyTypora](https://github.com/zhaoolee/EasyTypora)，可以把图片自动储存到自己的服务器。
 
-![](./index.assets/bea047d19a8f67d3d18305fe7f601039feaadd31fccbebecfbdefca3c765b6d3.png)
+![Typora Markdown 编辑器写作界面截图](./index.assets/bea047d19a8f67d3d18305fe7f601039feaadd31fccbebecfbdefca3c765b6d3.png)

@@ -1,7 +1,7 @@
 ---
 title: "从DigitalOcean搞个4美刀每月的印度IP穷鬼套餐，订阅印度区油管，每月500GB流量，超快网速，上行1000MB，下行5000MB"
 date: 2026-01-21
-categories: ["工作"]
+categories: ["实用IT技术"]
 draft: false
 ---
 
@@ -13,7 +13,7 @@ draft: false
 
 经过我多天的研究，发现digitalOcean每月4刀，每月500GB流量的印度服务器是兼具了性价比，稳定性，支付便利性的选择(digitalOcean 支持国内支付宝支付，对国内用户非常友好)
 
-![](index.assets/82644ede91ce6617445cf6a7dd12fc6ecfb530c58feb1ea2271b14caf8c760da.png)
+![DigitalOcean 印度班加罗尔 4 美刀服务器创建页面截图](index.assets/82644ede91ce6617445cf6a7dd12fc6ecfb530c58feb1ea2271b14caf8c760da.png)
 
 直接连接 https://cloud.digitalocean.com/droplets/new?i=47d171&region=blr1&size=s-1vcpu-512mb-10gb&distro=ubuntu&distroImage=ubuntu-22-04-x64
 
@@ -85,7 +85,7 @@ http://127.0.0.1:25500/sub?target=clash&url=粘贴刚才复制的那串字符
 
 访问链接后，获取订阅文件，给clash使用
 
-![](index.assets/64184b07178e7f607c916dd3bbb5c57f27c07b3042c2be52ada362ac4c7ae64d.png)
+![subconverter 将 vmess 链接转换为 Clash 订阅文件的结果截图](index.assets/64184b07178e7f607c916dd3bbb5c57f27c07b3042c2be52ada362ac4c7ae64d.png)
 
 
 推荐的clash客户端 https://clashparty.org/
@@ -98,10 +98,9 @@ wget -qO- bench.sh | bash
 ```
 这是DigitalOcean4美刀每月的印度IP每月500GB流量
 
-![](index.assets/e321411ef4b07bc904fe439cdced1a96724a07ccd861f2499a1c3b9709411ae1.png)
+![DigitalOcean 印度服务器 bench.sh 测速结果截图](index.assets/e321411ef4b07bc904fe439cdced1a96724a07ccd861f2499a1c3b9709411ae1.png)
 
 
 没有对比就没有伤害，下面一张是新加坡阿里云的，新加坡阿里云虽然网络慢，但是流量很便宜，24块钱1TB
 
-![](index.assets/a1797b992808b50418081bb9f76b8b1d5eed56e141dda6e675e78fc38ec00c82.png)
-
+![新加坡阿里云服务器 bench.sh 测速结果对比截图](index.assets/a1797b992808b50418081bb9f76b8b1d5eed56e141dda6e675e78fc38ec00c82.png)

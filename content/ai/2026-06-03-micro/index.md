@@ -7,7 +7,7 @@ aliases:
 draft: false
 ---
 
-![](index.assets/05ccc9f0f82c53902a4fc94ea811a4bc9d92d9a250588349f8c90b00eba0e9b5.png)
+![软件工程师职业变化讨论的配图](index.assets/05ccc9f0f82c53902a4fc94ea811a4bc9d92d9a250588349f8c90b00eba0e9b5.png)
 
 ## 软件工程师最坏的结局
 

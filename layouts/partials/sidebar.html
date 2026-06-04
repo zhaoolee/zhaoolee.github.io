@@ -1,6 +1,9 @@
 <aside class="sidebar" aria-label="站点导航">
   <div class="sidebar-head">
-    <h1><a href="/">{{ site.Title }}</a></h1>
+    <a class="site-brand" href="/" aria-label="{{ site.Title }}">
+      <img src="/logo.png" alt="" width="40" height="40">
+      <span>{{ site.Title }}</span>
+    </a>
     <div class="sidebar-mode-toggle" role="tablist" aria-label="导航模式">
       <button class="sidebar-mode-button" type="button" data-sidebar-mode-button="latest" aria-selected="true">最新</button>
       <button class="sidebar-mode-button" type="button" data-sidebar-mode-button="sections" aria-selected="false">专题</button>

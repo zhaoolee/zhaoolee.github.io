@@ -12,7 +12,7 @@ draft: false
 
 ## [33. DJI Mic：语音输入和录制神器](https://www.dji.com/mic)
 
-![](./index.assets/ef33fa73c13b675a600f43cd600cfd91b027860da78ed2b2beff4a24cc56ffa3.png)
+![DJI Mic 无线麦克风用于语音输入和录制的配图](./index.assets/ef33fa73c13b675a600f43cd600cfd91b027860da78ed2b2beff4a24cc56ffa3.png)
 
 DJI Mic 很适合用在语音输入、视频录制、会议收音这些场景里。
 
@@ -204,11 +204,11 @@ Framework 的核心卖点是可维修、可升级、可替换。
 
 ## [3. 树莓派：生活中 90% 的问题，都可以先试试用树莓派解决](https://www.raspberrypi.com/)
 
-![](./index.assets/13b1c22c55ba1cdea6c1b16f079dd7e5177a4942ade39ab41edc8bd61276b25d.png)
+![树莓派开发板硬件配图](./index.assets/13b1c22c55ba1cdea6c1b16f079dd7e5177a4942ade39ab41edc8bd61276b25d.png)
 
 [树莓派不吃灰](https://github.com/zhaoolee/pi)
 
-![](./index.assets/347e4cf81c4c9fcfd46077327c73123bf7ab5cf6195fde024cc8749efec96d45.png)
+![树莓派不吃灰项目页面截图](./index.assets/347e4cf81c4c9fcfd46077327c73123bf7ab5cf6195fde024cc8749efec96d45.png)
 
 树莓派最适合拿来做一些长期运行的小服务。
 

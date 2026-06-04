@@ -1,13 +1,13 @@
 ---
 title: "解决PM2 Log文件占用6.8GB的问题，设置Log文件自动清理"
 date: 2023-08-01
-categories: ["工作"]
+categories: ["实用IT技术"]
 draft: false
 ---
 
 今天准备迁移阿里云服务器，发现pm2居然保留了6.8GB的log文件，太浪费磁盘空间了!
 
-![](https://github.com/zhaoolee/GBlog/assets/15868458/37d07ab5-8c27-4c18-b6b4-14fed356a6eb)
+![PM2 日志文件占用 6.8GB 磁盘空间的截图](https://github.com/zhaoolee/GBlog/assets/15868458/37d07ab5-8c27-4c18-b6b4-14fed356a6eb)
 
 
 如果我们需要立刻删除log 可以直接删除logs文件夹, 删除后pm2 会自动创建文件夹

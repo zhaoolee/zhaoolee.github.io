@@ -7,7 +7,7 @@ aliases:
 draft: false
 ---
 
-![](index.assets/0bfc39b4f54e9d7b16397896be2693ba02d8fa3d0c88ef9f84c905777759ac03.png)
+![AI 笑话内容在小红书获得较高互动的截图](index.assets/0bfc39b4f54e9d7b16397896be2693ba02d8fa3d0c88ef9f84c905777759ac03.png)
 
 最近我整理了一下小红书，发现我阅读量和点赞量最高的，往往都是讲这种 AI 笑话的内容。
 

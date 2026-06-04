@@ -1,7 +1,7 @@
 ---
 title: "公司内网使用Clash Party tun模式，保持内部DNS解析内部域名的技巧"
 date: 2026-01-12
-categories: ["工作"]
+categories: ["实用IT技术"]
 draft: false
 ---
 
@@ -43,17 +43,16 @@ scutil --dns | grep nameserver
 
 1. 设置排除自定义网段，比如我的办公室网络有192.168.*.* 就排除自定义网段 192.168.0.0/16
 
-![](index.assets/7077d7181e88e6cdc2ccd0e3adba113cb9fd5d4b2975178611ac3c0dd00302f5.png)
+![Clash Party TUN 模式排除办公室内网网段的配置截图](index.assets/7077d7181e88e6cdc2ccd0e3adba113cb9fd5d4b2975178611ac3c0dd00302f5.png)
 
 
 2. 添加覆写规则，匹配公司一级域名作为后缀，添加直连
 
-![](index.assets/0ea3c24e78c85884a07b5ff68ae0e491044edfbd05edf30477fefce5e89a335b.png)
+![Clash Party 添加公司域名直连覆写规则的截图](index.assets/0ea3c24e78c85884a07b5ff68ae0e491044edfbd05edf30477fefce5e89a335b.png)
 
-![](index.assets/f9e1bc778cd44a2397f15dedd817dccac6872c37f9a4f8820276fdf0016543b5.png)
+![Clash Party 公司域名后缀匹配规则配置截图](index.assets/f9e1bc778cd44a2397f15dedd817dccac6872c37f9a4f8820276fdf0016543b5.png)
 
 3. 对公司一级域名回应真实IP，并使用内网DNS解析
 
-![](index.assets/03d378c3b60f8c5abceda69bcec909401028c6fbaae2d319c51f0a73672866bd.png)
-
+![Clash Party 对公司域名回应真实 IP 并使用内网 DNS 的配置截图](index.assets/03d378c3b60f8c5abceda69bcec909401028c6fbaae2d319c51f0a73672866bd.png)
 
