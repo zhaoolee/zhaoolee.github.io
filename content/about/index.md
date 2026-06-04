@@ -37,6 +37,19 @@ draft: false
 
 数字货币相关内容只记录技术和个人观察，不构成投资建议。
 
+## RSS 订阅
+
+如果你习惯用 RSS 阅读器，可以订阅全站更新，也可以只订阅自己关心的专题：
+
+- 全站更新：[https://zhaoolee.com/index.xml](https://zhaoolee.com/index.xml)
+- 软件：[https://zhaoolee.com/software/index.xml](https://zhaoolee.com/software/index.xml)
+- 硬件：[https://zhaoolee.com/hardware/index.xml](https://zhaoolee.com/hardware/index.xml)
+- AI：[https://zhaoolee.com/ai/index.xml](https://zhaoolee.com/ai/index.xml)
+- 实用 IT 技术：[https://zhaoolee.com/work/index.xml](https://zhaoolee.com/work/index.xml)
+- 游戏：[https://zhaoolee.com/game/index.xml](https://zhaoolee.com/game/index.xml)
+- 数字货币：[https://zhaoolee.com/digital-currency/index.xml](https://zhaoolee.com/digital-currency/index.xml)
+- 杂谈：[https://zhaoolee.com/chat/index.xml](https://zhaoolee.com/chat/index.xml)
+
 ## 联系我
 
 - GitHub：[zhaoolee](https://github.com/zhaoolee)
