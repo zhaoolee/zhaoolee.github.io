@@ -1,7 +1,9 @@
 ---
 title: "软件工程师以后会怎样？"
 date: 2026-06-03
-categories: ["杂谈"]
+categories: ["AI"]
+aliases:
+  - /chat/2026-06-03-micro/
 draft: false
 ---
 

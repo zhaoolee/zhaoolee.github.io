@@ -1,7 +1,9 @@
 ---
 title: "如何用AI做游戏赚钱？"
 date: 2026-05-24
-categories: ["杂谈"]
+categories: ["AI"]
+aliases:
+  - /chat/2026-05-24-game-make-money/
 draft: false
 ---
 

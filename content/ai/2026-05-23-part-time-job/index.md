@@ -1,7 +1,9 @@
 ---
 title: "小游戏开发者的成本控制"
 date: 2026-05-23
-categories: ["杂谈"]
+categories: ["AI"]
+aliases:
+  - /chat/2026-05-23-part-time-job/
 draft: false
 ---
 

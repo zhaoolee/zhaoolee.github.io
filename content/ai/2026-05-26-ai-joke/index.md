@@ -1,7 +1,9 @@
 ---
 title: "为什么大家喜欢看 AI 笑话？"
 date: 2026-05-26
-categories: ["杂谈"]
+categories: ["AI"]
+aliases:
+  - /chat/2026-05-26-ai-joke/
 draft: false
 ---
 

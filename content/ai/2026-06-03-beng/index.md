@@ -1,8 +1,9 @@
 ---
-title: “班味儿”就是要能绷得住
+title: AI销冠智能体！“班味儿”就是要能绷得住
 date: 2026-06-03
-categories: ["杂谈"]
+categories: ["AI"]
 aliases:
+  - /chat/2026-06-03-beng/
   - /work/2026-06-03-beng/
 draft: false
 ---

@@ -31,22 +31,26 @@ summaryLength = 120
     url = "/hardware/"
     weight = 20
   [[menu.main]]
+    name = "AI"
+    url = "/ai/"
+    weight = 30
+  [[menu.main]]
     name = "实用IT技术"
     url = "/work/"
-    weight = 30
+    weight = 40
   [[menu.main]]
     name = "游戏"
     url = "/game/"
-    weight = 40
+    weight = 50
   [[menu.main]]
     name = "数字货币"
     url = "/digital-currency/"
-    weight = 50
+    weight = 60
   [[menu.main]]
     name = "杂谈"
     url = "/chat/"
-    weight = 60
+    weight = 70
   [[menu.main]]
     name = "关于"
     url = "/about/"
-    weight = 70
+    weight = 80

@@ -1,7 +1,9 @@
 ---
 title: "AI充值也有破窗效应，一旦充了每月200刀，就很难再回到100刀了，除非停下来"
 date: 2026-05-30
-categories: ["杂谈"]
+categories: ["AI"]
+aliases:
+  - /chat/2026-05-30-ai-spend/
 draft: false
 ---
 

@@ -1,7 +1,9 @@
 ---
 title: "便宜Token害人，远离粗粮模型"
 date: 2026-05-28
-categories: ["杂谈"]
+categories: ["AI"]
+aliases:
+  - /chat/2026-05-28-ai-mi/
 draft: false
 ---
 

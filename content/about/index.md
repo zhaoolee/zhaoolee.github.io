@@ -15,10 +15,11 @@ draft: false
 
 - **软件**：长期自用的软件、生产力工具和真实使用感受。
 - **硬件**：程序员工作流里真正有用的设备、小玩意儿和折腾记录。
+- **AI**：模型体验、Token 成本、AI 编程、独立开发和软件工程师职业变化。
 - **实用 IT 技术**：服务器、网络、DNS、代理、Linux、部署、运维和开发环境相关的具体问题。
 - **游戏**：游戏体验、运行环境、折腾方法和一些个人观察。
 - **数字货币**：偏技术视角的挖矿、设备、工具和风险观察。
-- **杂谈**：AI、程序员职业、个人网站、RSS、独立开发和一些不太好归类的想法。
+- **杂谈**：程序员职业、个人网站、RSS、独立开发和一些不太好归类的想法。
 
 ## 内容原则
 
@@ -41,4 +42,3 @@ draft: false
 - GitHub：[zhaoolee](https://github.com/zhaoolee)
 - Email：[zhaoolee@gmail.com](mailto:zhaoolee@gmail.com)
 - 网站：[zhaoolee.com](https://zhaoolee.com)
-

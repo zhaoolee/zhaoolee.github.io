@@ -1,7 +1,9 @@
 ---
 title: "告别GPT语音模式降智！一个简单动作锁死最强模型"
 date: 2026-05-21
-categories: ["杂谈"]
+categories: ["AI"]
+aliases:
+  - /chat/2026-05-21-chatgpt-voice/
 draft: false
 ---
 

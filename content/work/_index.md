@@ -1,7 +1,7 @@
 ---
 title: "实用IT技术"
 categories: ["实用IT技术"]
-weight: 30
+weight: 40
 draft: false
 ---
 
