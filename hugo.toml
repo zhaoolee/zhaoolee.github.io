@@ -35,6 +35,10 @@ summaryLength = 120
     url = "/work/"
     weight = 30
   [[menu.main]]
+    name = "软件"
+    url = "/software/"
+    weight = 35
+  [[menu.main]]
     name = "杂谈"
     url = "/chat/"
     weight = 40
