@@ -10,6 +10,15 @@
 
 [zhaoolee.com/index.xml](https://zhaoolee.com/index.xml)
 
+## 本地搜索预览
+
+Pagefind 搜索需要先生成索引。本地使用 `hugo server` 调试搜索页时，另开一个终端运行：
+
+```bash
+bash scripts/pagefind-dev.sh
+```
+
+脚本会把索引生成到 `static/pagefind/`，让 `hugo server` 可以直接访问；文章、模板或样式变化后会自动重新构建 Hugo 并刷新 Pagefind 索引。
 
 ## 技术参考
 

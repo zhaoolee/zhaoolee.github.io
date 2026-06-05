@@ -46,6 +46,9 @@ jobs:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
         run: hugo --gc --minify
 
+      - name: Build Pagefind search index
+        run: npx --yes pagefind --site public --output-subdir pagefind
+
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:

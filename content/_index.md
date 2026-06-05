@@ -4,6 +4,9 @@ draft: false
 ---
 # zhaoolee的自留地
 
+
+
+
 MAIL：[zhaoolee@gmail.com](mailto:zhaoolee@gmail.com)
 
 ![zhaoolee](https://readme-stats-fast.vercel.app/api?username=zhaoolee)
@@ -55,4 +58,8 @@ MAIL：[zhaoolee@gmail.com](mailto:zhaoolee@gmail.com)
 
 将Linux融入生活，为喜欢折腾树莓派的人，提供打开思路的资源，寓教于乐，让树莓派造福人类，让树莓派不再吃灰~ [https://t.me/zhaoolee_pi](https://t.me/zhaoolee_pi)
 
+## RSS订阅
 
+```bash
+https://zhaoolee.com/index.xml
+```

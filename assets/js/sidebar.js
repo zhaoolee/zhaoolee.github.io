@@ -125,6 +125,74 @@
     window.addEventListener("scroll", syncActiveLink, { passive: true });
   }
 
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+
+    return new Promise(function (resolve, reject) {
+      var textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+
+      try {
+        var succeeded = document.execCommand("copy");
+        document.body.removeChild(textarea);
+        succeeded ? resolve() : reject(new Error("Copy command failed"));
+      } catch (error) {
+        document.body.removeChild(textarea);
+        reject(error);
+      }
+    });
+  }
+
+  function setupCodeCopyButtons() {
+    var codeBlocks = Array.prototype.slice.call(document.querySelectorAll(".article-content pre > code"));
+
+    codeBlocks.forEach(function (code) {
+      var pre = code.parentElement;
+
+      if (!pre || pre.querySelector(".code-copy-button")) {
+        return;
+      }
+
+      pre.classList.add("code-block-with-copy");
+
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "code-copy-button";
+      button.textContent = "复制";
+      button.setAttribute("aria-label", "复制代码");
+
+      button.addEventListener("click", function () {
+        var originalText = button.textContent;
+
+        copyText(code.textContent || "")
+          .then(function () {
+            button.textContent = "已复制";
+            button.classList.add("is-copied");
+          })
+          .catch(function () {
+            button.textContent = "手动复制";
+            button.classList.add("is-failed");
+          })
+          .finally(function () {
+            window.setTimeout(function () {
+              button.textContent = originalText;
+              button.classList.remove("is-copied", "is-failed");
+            }, 1600);
+          });
+      });
+
+      pre.appendChild(button);
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     var sidebar = document.querySelector(".sidebar");
 
@@ -151,5 +219,6 @@
     });
 
     setupArticleToc();
+    setupCodeCopyButtons();
   });
 })();

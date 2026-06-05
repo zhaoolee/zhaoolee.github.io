@@ -16,6 +16,7 @@
     <link rel="canonical" href="{{ .Permalink }}">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     {{ partial "google-analytics.html" . }}
+    {{ block "head" . }}{{ end }}
     {{ with resources.Get "css/site.css" }}
       {{ with . | minify | fingerprint "sha256" }}
         <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">

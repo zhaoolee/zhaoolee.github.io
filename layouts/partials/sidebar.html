@@ -4,6 +4,12 @@
       <img src="/logo.png" alt="" width="40" height="40">
       <span>{{ site.Title }}</span>
     </a>
+    <form class="sidebar-search-form" action="/search/" method="get" role="search">
+      <label class="sidebar-search-field">
+        <span class="sidebar-search-icon" aria-hidden="true"></span>
+        <input type="search" name="q" placeholder="快速搜索关键字" aria-label="搜索站内内容">
+      </label>
+    </form>
     <div class="sidebar-mode-toggle" role="tablist" aria-label="导航模式">
       <button class="sidebar-mode-button" type="button" data-sidebar-mode-button="latest" aria-selected="true">最新</button>
       <button class="sidebar-mode-button" type="button" data-sidebar-mode-button="sections" aria-selected="false">专题</button>
