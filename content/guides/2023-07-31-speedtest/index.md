@@ -33,14 +33,14 @@ apt install  speedtest-cli -y
 
 测试带宽为5MB的阿里云
 
-![测试带宽为5MB的阿里云](https://github.com/zhaoolee/GBlog/assets/15868458/085793d6-bfa8-41ee-87c3-03b9e9c21c1a)
+![测试带宽为5MB的阿里云](./index.assets/085793d6-bfa8-41ee-87c3-03b9e9c21c1a.png)
 
 
 
 测试10MB带宽的天翼云
 
 
-![测试10MB带宽的天翼云](https://github.com/zhaoolee/GBlog/assets/15868458/13fa796b-2131-43da-9313-8c40e1736a9b)
+![测试10MB带宽的天翼云](./index.assets/13fa796b-2131-43da-9313-8c40e1736a9b.png)
 
 ## 小结
 
