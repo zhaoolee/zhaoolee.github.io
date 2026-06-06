@@ -5,50 +5,14 @@ draft: false
 
 ## 我是谁
 
-我是 zhaoolee，一个长期折腾开源、个人效率工具、服务器、自动化脚本和独立产品的程序员。
+我是 zhaoolee，一个长期折腾开源、个人效率工具、服务器、自动化脚本和独立产品的程序员。GitHub 作品集在：[项目](/project/)。
 
-这个网站是我的个人自留地，用来记录真实用过、踩过坑、愿意长期保留的经验。这里不会追求资讯速度，也不把内容写成标准答案；我更希望它像一个持续更新的个人经验库，能在某个具体问题上帮到后来的人。
 
-## 这个站写什么
-
-目前主要写这几类内容：
-
-- **软件**：长期自用的软件、生产力工具和真实使用感受。
-- **硬件**：程序员工作流里真正有用的设备、小玩意儿和折腾记录。
-- **AI**：模型体验、Token 成本、AI 编程、独立开发和软件工程师职业变化。
-- **实用 IT 技术**：服务器、网络、DNS、代理、Linux、部署、运维和开发环境相关的具体问题。
-- **游戏**：游戏体验、运行环境、折腾方法和一些个人观察。
-- **数字货币**：偏技术视角的挖矿、设备、工具和风险观察。
-- **杂谈**：程序员职业、个人网站、RSS、独立开发和一些不太好归类的想法。
-
-## 内容原则
-
-这个站的内容优先来自我的一手经验。能自己试的，我尽量自己试；能给出命令、截图、链接、验证结果的，我尽量补充完整。
-
-我会长期更新一些清单型文章，比如自用软件推荐、自用硬件推荐。它们不是一次性榜单，而是会随着我的实际使用变化而调整。
-
-如果文章涉及第三方工具、软件或服务，我会尽量补充官网、开源仓库或相关资料链接，方便读者自行判断。
-
-## 你可以怎样使用这里的内容
-
-如果你是程序员、独立开发者，或者只是喜欢折腾工具和设备的人，可以把这个站当成一个参考库。
-
-技术文章里的命令和配置建议先在自己的测试环境验证。软件、硬件和服务推荐也请结合自己的预算、地区、设备和使用习惯判断，不必照单全收。
-
-数字货币相关内容只记录技术和个人观察，不构成投资建议。
 
 ## RSS 订阅
 
-如果你习惯用 RSS 阅读器，可以订阅全站更新，也可以只订阅自己关心的专题：
+[https://zhaoolee.com/index.xml](https://zhaoolee.com/index.xml)
 
-- 全站更新：[https://zhaoolee.com/index.xml](https://zhaoolee.com/index.xml)
-- 软件：[https://zhaoolee.com/software/index.xml](https://zhaoolee.com/software/index.xml)
-- 硬件：[https://zhaoolee.com/hardware/index.xml](https://zhaoolee.com/hardware/index.xml)
-- AI：[https://zhaoolee.com/ai/index.xml](https://zhaoolee.com/ai/index.xml)
-- 实用 IT 技术：[https://zhaoolee.com/work/index.xml](https://zhaoolee.com/work/index.xml)
-- 游戏：[https://zhaoolee.com/game/index.xml](https://zhaoolee.com/game/index.xml)
-- 数字货币：[https://zhaoolee.com/digital-currency/index.xml](https://zhaoolee.com/digital-currency/index.xml)
-- 杂谈：[https://zhaoolee.com/chat/index.xml](https://zhaoolee.com/chat/index.xml)
 
 ## 联系我
 

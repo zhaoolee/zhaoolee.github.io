@@ -60,7 +60,7 @@ GitHub：[mihomo-party-org/clash-party](https://github.com/mihomo-party-org/clas
 
 这个软件最大的优势就是它可以设置一些相对复杂的 DNS 分流规则。
 
-如果你的公司内网限制得很严格，Clash Party 可以让你在科学上网的同时，又能够使用公司内网的各类服务。我的实践攻略：[公司内网使用 Clash Party TUN 模式，保持内部 DNS 解析内部域名的技巧](https://zhaoolee.com/work/2026-01-12-network/)
+如果你的公司内网限制得很严格，Clash Party 可以让你在科学上网的同时，又能够使用公司内网的各类服务。我的实践攻略：[公司内网使用 Clash Party TUN 模式，保持内部 DNS 解析内部域名的技巧](https://zhaoolee.com/guides/2026-01-12-network/)
 
 **付费 VPN 科学上网工具推荐**：通用网络加速器，为科技工作者创造价值。如果你想获得稳定高速的科学上网体验，zhaoolee 推荐一家小众但非常稳定的 VPN 供应商 GLaDOS（提供 vmess 方式），看 YouTube 1080P 不卡。注册登录后，后台提供 iOS 端美区 App 的下载账号。
 

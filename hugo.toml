@@ -24,32 +24,24 @@ summaryLength = 120
 
 [menu]
   [[menu.main]]
+    name = "做法"
+    url = "/guides/"
+    weight = 10
+  [[menu.main]]
     name = "软件"
     url = "/software/"
-    weight = 10
+    weight = 20
   [[menu.main]]
     name = "硬件"
     url = "/hardware/"
-    weight = 20
-  [[menu.main]]
-    name = "AI"
-    url = "/ai/"
     weight = 30
   [[menu.main]]
-    name = "实用IT技术"
-    url = "/work/"
+    name = "项目"
+    url = "/project/"
     weight = 40
   [[menu.main]]
-    name = "游戏"
-    url = "/game/"
-    weight = 50
-  [[menu.main]]
-    name = "数字货币"
-    url = "/digital-currency/"
-    weight = 60
-  [[menu.main]]
     name = "杂谈"
-    url = "/chat/"
+    url = "/log/"
     weight = 70
   [[menu.main]]
     name = "关于"

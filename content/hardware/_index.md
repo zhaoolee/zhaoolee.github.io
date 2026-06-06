@@ -1,7 +1,7 @@
 ---
 title: "硬件"
 categories: ["硬件"]
-weight: 20
+weight: 30
 draft: false
 ---
 
